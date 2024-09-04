@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "user": { "id": 1 },
+    "ticketType": "DAY",
+    "creationDate": "2024-09-04T14:30:00.000Z"
+  },
+  {
+    "id": 2,
+    "user": { "id": 2 },
+    "ticketType": "WEEK",
+    "creationDate": "2024-09-04T15:00:00.000Z"
+  }
+]
