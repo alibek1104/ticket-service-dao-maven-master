@@ -1,26 +1,22 @@
 package ticket_service_dao_maven;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ticket_service_dao_maven.Ticket;
-import ticket_service_dao_maven.TicketService;
-
-import java.io.IOException;
-import java.util.List;
 
 @RestController
 @RequestMapping("/tickets")
 public class TicketController {
 
-    private final TicketService ticketService;
+    private final TicketRepository ticketRepository;
 
-    public TicketController(TicketService ticketService) {
-        this.ticketService = ticketService;
+    public TicketController(TicketRepository ticketRepository) {
+        this.ticketRepository = ticketRepository;
     }
 
-    @GetMapping("/load")
-    public List<Ticket> loadTickets() throws IOException {
-        return ticketService.loadTickets();
+    @GetMapping("/{id}")
+    public Ticket getTicketById(@PathVariable int id) {
+        return ticketRepository.findById(id).orElse(null);
     }
 }
